@@ -1,11 +1,3 @@
-export type GroceryItem = {
-  name: string;
-  sections: {
-    "Kroger Hernando": string;
-    "Walmart Hernando": string;
-    "ALDI": string;
-  };
-};
 
 export type StoreName = "Kroger Hernando" | "Walmart Hernando" | "ALDI";
 
