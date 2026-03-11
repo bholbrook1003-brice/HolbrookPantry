@@ -520,6 +520,16 @@ export default function Home() {
     lineHeight: 1.1,
   };
 
+  const miniButtonStyle = {
+    padding: "5px 8px",
+    border: "none",
+    borderRadius: "8px",
+    cursor: "pointer",
+    fontWeight: 700 as const,
+    fontSize: "11px",
+    lineHeight: 1.05,
+  };
+
   return (
     <main
       style={{
@@ -670,9 +680,9 @@ export default function Home() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(135px, 1fr))",
-            gap: "10px",
-            marginBottom: "16px",
+            gridTemplateColumns: "repeat(auto-fit, minmax(80px, 1fr))",
+            gap: "8px",
+            marginBottom: "12px",
           }}
         >
           {[
@@ -684,26 +694,26 @@ export default function Home() {
               key={label}
               style={{
                 backgroundColor: theme.panelBg,
-                padding: "12px 14px",
-                borderRadius: "12px",
+                padding: "6px 8px",
+                borderRadius: "8px",
                 border: `1px solid ${theme.border}`,
                 boxShadow: theme.shadow,
               }}
             >
               <div
                 style={{
-                  fontSize: "11px",
+                  fontSize: "9px",
                   color: theme.mutedText,
-                  marginBottom: "6px",
+                  marginBottom: "4px",
                   textTransform: "uppercase",
-                  letterSpacing: "0.05em",
+                  letterSpacing: "0.03em",
                 }}
               >
                 {label}
               </div>
               <div
                 style={{
-                  fontSize: "22px",
+                  fontSize: "16px",
                   fontWeight: 800,
                   color: theme.warmDark,
                 }}
@@ -718,8 +728,8 @@ export default function Home() {
           style={{
             display: "grid",
             gridTemplateColumns: "1.1fr 1fr",
-            gap: "16px",
-            marginBottom: "16px",
+            gap: "12px",
+            marginBottom: "12px",
           }}
         >
           <div
@@ -761,19 +771,19 @@ export default function Home() {
           <div
             style={{
               backgroundColor: theme.panelBg,
-              padding: "16px",
-              borderRadius: "14px",
+              padding: "8px",
+              borderRadius: "10px",
               border: `1px solid ${theme.border}`,
               boxShadow: theme.shadow,
             }}
           >
             <div
               style={{
-                fontSize: "11px",
+                fontSize: "10px",
                 color: theme.mutedText,
-                marginBottom: "10px",
+                marginBottom: "6px",
                 textTransform: "uppercase",
-                letterSpacing: "0.06em",
+                letterSpacing: "0.05em",
               }}
             >
               Trip Progress
@@ -782,11 +792,11 @@ export default function Home() {
             <div
               style={{
                 width: "100%",
-                height: "12px",
+                height: "6px",
                 backgroundColor: "#ddd5c8",
                 borderRadius: "999px",
                 overflow: "hidden",
-                marginBottom: "8px",
+                marginBottom: "6px",
               }}
             >
               <div
@@ -799,7 +809,7 @@ export default function Home() {
               />
             </div>
 
-            <div style={{ fontSize: "13px", color: theme.mutedText }}>
+            <div style={{ fontSize: "11px", color: theme.mutedText }}>
               {totalInCartItems} of {totalUniqueItems} items done
             </div>
           </div>
@@ -831,23 +841,23 @@ export default function Home() {
           <div
             style={{
               backgroundColor: theme.panelBg,
-              padding: "16px",
-              borderRadius: "14px",
+              padding: "8px",
+              borderRadius: "10px",
               border: `1px solid ${theme.border}`,
               boxShadow: theme.shadow,
-              marginBottom: "16px",
+              marginBottom: "10px",
             }}
           >
-            <h2 style={{ margin: "0 0 12px", color: theme.warmDark, fontSize: "22px" }}>
+            <h2 style={{ margin: "0 0 8px", color: theme.warmDark, fontSize: "16px" }}>
               Saved Lists
             </h2>
 
             <div
               style={{
                 display: "flex",
-                gap: "10px",
+                gap: "8px",
                 flexWrap: "wrap",
-                marginBottom: "12px",
+                marginBottom: "8px",
               }}
             >
               <input
@@ -856,20 +866,20 @@ export default function Home() {
                 value={newListName}
                 onChange={(e) => setNewListName(e.target.value)}
                 style={{
-                  flex: "1 1 220px",
-                  padding: "10px 12px",
-                  borderRadius: "12px",
+                  flex: "1 1 180px",
+                  padding: "6px 8px",
+                  borderRadius: "8px",
                   border: `1px solid ${theme.border}`,
                   backgroundColor: theme.white,
                   color: theme.text,
-                  fontSize: "14px",
+                  fontSize: "12px",
                 }}
               />
 
               <button
                 onClick={saveCurrentList}
                 style={{
-                  ...compactButtonStyle,
+                  ...miniButtonStyle,
                   backgroundColor: theme.greenDark,
                   color: theme.white,
                 }}
@@ -878,7 +888,7 @@ export default function Home() {
               </button>
             </div>
 
-            <div style={{ fontSize: "12px", color: theme.mutedText, marginTop: "6px" }}>
+            <div style={{ fontSize: "10px", color: theme.mutedText, marginTop: "4px" }}>
               Saving with the same name will update the old list.
             </div>
 
@@ -886,12 +896,12 @@ export default function Home() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                gap: "10px",
-                marginTop: "12px",
+                gap: "6px",
+                marginTop: "8px",
               }}
             >
               {savedLists.length === 0 ? (
-                <div style={{ color: theme.mutedText }}>No saved lists yet.</div>
+                <div style={{ color: theme.mutedText, fontSize: "11px" }}>No saved lists yet.</div>
               ) : (
                 savedLists.map((list) => (
                   <div
@@ -900,26 +910,28 @@ export default function Home() {
                       display: "flex",
                       justifyContent: "space-between",
                       alignItems: "center",
-                      gap: "10px",
+                      gap: "8px",
                       flexWrap: "wrap",
                       backgroundColor: theme.white,
                       border: `1px solid ${theme.border}`,
-                      borderRadius: "12px",
-                      padding: "10px 12px",
+                      borderRadius: "8px",
+                      padding: "6px 8px",
                     }}
                   >
                     <div>
-                      <div style={{ fontWeight: 700, color: theme.text }}>{list.name}</div>
-                      <div style={{ fontSize: "12px", color: theme.mutedText }}>
+                      <div style={{ fontWeight: 700, color: theme.text, fontSize: "12px" }}>
+                        {list.name}
+                      </div>
+                      <div style={{ fontSize: "10px", color: theme.mutedText }}>
                         {list.items.length} items
                       </div>
                     </div>
 
-                    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                    <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
                       <button
                         onClick={() => loadSavedList(list)}
                         style={{
-                          ...compactButtonStyle,
+                          ...miniButtonStyle,
                           backgroundColor: theme.blueDark,
                           color: theme.white,
                         }}
@@ -930,7 +942,7 @@ export default function Home() {
                       <button
                         onClick={() => deleteSavedList(list.name)}
                         style={{
-                          ...compactButtonStyle,
+                          ...miniButtonStyle,
                           backgroundColor: theme.danger,
                           color: theme.white,
                         }}
@@ -949,21 +961,21 @@ export default function Home() {
           <div
             style={{
               backgroundColor: theme.panelBg,
-              padding: "16px",
-              borderRadius: "14px",
+              padding: "8px",
+              borderRadius: "10px",
               border: `1px solid ${theme.border}`,
               boxShadow: theme.shadow,
-              marginBottom: "16px",
+              marginBottom: "10px",
             }}
           >
-            <h2 style={{ margin: "0 0 12px", color: theme.warmDark, fontSize: "22px" }}>
+            <h2 style={{ margin: "0 0 8px", color: theme.warmDark, fontSize: "16px" }}>
               Quick Add
             </h2>
             <div
               style={{
                 display: "flex",
                 flexWrap: "wrap",
-                gap: "8px",
+                gap: "6px",
               }}
             >
               {quickAddItems.map((itemName) => {
@@ -975,7 +987,7 @@ export default function Home() {
                     key={itemName}
                     onClick={() => addItem(groceryItem)}
                     style={{
-                      ...compactButtonStyle,
+                      ...miniButtonStyle,
                       borderRadius: "999px",
                       backgroundColor: theme.blueLight,
                       color: theme.blueDark,
